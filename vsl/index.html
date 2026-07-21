@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+
+    <title>Pastor Rhema — AI Pastoral Assistant</title>
+    <meta name="description"
+        content="Prepare sermons and study the Bible with clarity, depth, and structure — in minutes. Lifetime access." />
+
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload"
+        href="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/players/6a5fa762a6f1fecd77d6377a/v4/player.js"
+        as="script" fetchpriority="high">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload"
+        href="https://cdn.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/6a5fa759e62c60b0cbfbaf32/main.m3u8"
+        as="fetch" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://license.vturb.com">
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+    <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #0b1220;
+            --muted: #4b5563;
+            --card: #f7f8fb;
+            --line: #e7e9ef;
+            --primary: #0b2a5b;
+            --gold: #caa14a;
+            --ok: #0f766e;
+            --shadow: 0 10px 30px rgba(15, 23, 42, .10);
+            --radius: 18px;
+            --radius2: 26px;
+            --max: 920px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 800px at 50% -80px, rgba(202, 161, 74, .18), transparent 55%),
+                radial-gradient(900px 600px at 10% 10%, rgba(11, 42, 91, .12), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            padding-bottom: 88px;
+        }
+
+        a {
+            color: inherit
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 18px;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, .72);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .topbar .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 18px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(11, 42, 91, .98), rgba(11, 42, 91, .86));
+            display: grid;
+            place-items: center;
+            box-shadow: var(--shadow);
+            flex: 0 0 auto;
+        }
+
+        .mark svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .brand .name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+            min-width: 0;
+        }
+
+        .brand .name b {
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+
+        .brand .name small {
+            color: var(--muted);
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .pill {
+            border: 1px solid var(--line);
+            background: #fff;
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(11, 42, 91, .18);
+            background: linear-gradient(180deg, rgba(11, 42, 91, .98), rgba(11, 42, 91, .86));
+            color: #fff;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 14px 35px rgba(11, 42, 91, .20);
+            cursor: pointer;
+            transition: transform .08s ease;
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn.buy {
+            background: linear-gradient(180deg, #16a34a, #15803d);
+            border: 1px solid rgba(22, 163, 74, .35);
+            box-shadow: 0 16px 40px rgba(22, 163, 74, .25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn.buy::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            left: -60%;
+            width: 60%;
+            height: 180%;
+            transform: rotate(18deg);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .btn.buy {
+                animation: pulseBuy 1.6s ease-in-out infinite;
+            }
+
+            .btn.buy::after {
+                animation: shineBuy 2.2s ease-in-out infinite;
+            }
+        }
+
+        @keyframes pulseBuy {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes shineBuy {
+            0% {
+                left: -60%;
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            55% {
+                left: 130%;
+                opacity: 0;
+            }
+
+            100% {
+                left: 130%;
+                opacity: 0;
+            }
+        }
+
+        .btn.secondary {
+            background: #fff;
+            color: var(--primary);
+            border: 1px solid rgba(11, 42, 91, .22);
+            box-shadow: none;
+            font-weight: 800;
+        }
+
+        .hero {
+            padding: 16px 0 8px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(202, 161, 74, .35);
+            background: rgba(202, 161, 74, .10);
+            color: #6b4e13;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .bonus-card {
+            border: 1px solid rgba(202, 161, 74, .55);
+            background: radial-gradient(900px 500px at 10% 0%, rgba(202, 161, 74, .18), transparent 55%),
+                linear-gradient(180deg, rgba(202, 161, 74, .10), rgba(11, 42, 91, .03));
+            box-shadow: 0 14px 40px rgba(202, 161, 74, .14);
+        }
+
+        .bonus-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 900;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #5b430f;
+            background: rgba(202, 161, 74, .16);
+            border: 1px solid rgba(202, 161, 74, .45);
+        }
+
+        .bonus-list {
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .bonus-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid rgba(202, 161, 74, .25);
+            border-radius: 16px;
+        }
+
+        .bonus-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            background: rgba(202, 161, 74, .18);
+            border: 1px solid rgba(202, 161, 74, .35);
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            margin-top: 1px;
+            color: #6b4e13;
+            font-weight: 900;
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(26px, 5.2vw, 44px);
+            line-height: 1.08;
+            letter-spacing: -.6px;
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 16.5px;
+            line-height: 1.55;
+            margin: 0 0 16px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .85);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 16px;
+        }
+
+        .card.soft {
+            background: var(--card);
+            box-shadow: none;
+        }
+
+        .kpis {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .kpi {
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: #fff;
+            padding: 12px;
+        }
+
+        .kpi b {
+            display: block;
+            font-size: 14px
+        }
+
+        .kpi small {
+            color: var(--muted)
+        }
+
+        .section {
+            padding: 16px 0;
+        }
+
+        .section h2 {
+            margin: 0 0 10px;
+            font-size: 22px;
+            letter-spacing: -.2px;
+        }
+
+        .section p {
+            margin: 0 0 10px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        ul.clean {
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+        }
+
+        .dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            background: rgba(15, 118, 110, .10);
+            border: 1px solid rgba(15, 118, 110, .20);
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            margin-top: 1px;
+        }
+
+        .dot svg {
+            width: 14px;
+            height: 14px;
+            color: var(--ok)
+        }
+
+        .li b {
+            display: block;
+            margin-bottom: 2px
+        }
+
+        .li span {
+            color: var(--muted);
+            line-height: 1.45
+        }
+
+        .steps {
+            display: grid;
+            gap: 10px;
+        }
+
+        .step {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 18px;
+            padding: 14px;
+        }
+
+        .step .top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .num {
+            width: 30px;
+            height: 30px;
+            border-radius: 12px;
+            background: rgba(11, 42, 91, .10);
+            border: 1px solid rgba(11, 42, 91, .20);
+            color: var(--primary);
+            font-weight: 900;
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+        }
+
+        .quote {
+            border-left: 3px solid rgba(202, 161, 74, .9);
+            padding: 10px 12px;
+            background: rgba(202, 161, 74, .08);
+            border-radius: 14px;
+            color: #5b430f;
+            line-height: 1.55;
+        }
+
+        .price {
+            display: grid;
+            gap: 10px;
+        }
+
+        .price .box {
+            border: 1px solid rgba(11, 42, 91, .18);
+            background: linear-gradient(180deg, rgba(11, 42, 91, .04), rgba(11, 42, 91, .02));
+            border-radius: 20px;
+            padding: 16px;
+        }
+
+        .price .row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .offer-banner {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 16px;
+            border: 1px solid rgba(22, 163, 74, .30);
+            background: rgba(22, 163, 74, .08);
+            margin-top: 12px;
+        }
+
+        .offer-banner b {
+            display: block
+        }
+
+        .offer-banner .prices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            white-space: nowrap;
+        }
+
+        .offer-banner .was {
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: line-through;
+            font-weight: 800;
+        }
+
+        .offer-banner .now {
+            font-size: 18px;
+            font-weight: 950;
+            color: #15803d;
+            letter-spacing: -.2px;
+        }
+
+        .offer-banner .sub {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .strike {
+            color: var(--muted);
+            text-decoration: line-through;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .amount {
+            font-size: 30px;
+            font-weight: 950;
+            letter-spacing: -.6px;
+            color: var(--primary);
+        }
+
+        .subamount {
+            color: var(--muted);
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .mini {
+            font-size: 12.5px;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        details {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            padding: 12px 14px;
+        }
+
+        details+details {
+            margin-top: 10px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 850;
+            color: var(--text);
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none
+        }
+
+        .footer {
+            padding: 18px 0 10px;
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.55;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, .86);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--line);
+            padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+            z-index: 60;
+        }
+
+        .sticky-cta .inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .sticky-cta .inner a {
+            flex: 1
+        }
+
+        .sticky-cta .inner a.secondary {
+            max-width: 140px
+        }
+
+        .sticky-cta .inner {
+            flex-wrap: wrap
+        }
+
+        .sticky-cta .notice {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: #14532d;
+            font-weight: 800;
+            padding: 8px 10px;
+            border-radius: 14px;
+            border: 1px solid rgba(22, 163, 74, .28);
+            background: rgba(22, 163, 74, .10);
+        }
+
+        .sticky-cta .notice .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(22, 163, 74, .30);
+            background: #fff;
+            color: #166534;
+            font-weight: 950;
+            letter-spacing: .2px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--line);
+            margin: 16px 0;
+        }
+
+        .video {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: none;
+            min-height: 210px;
+            aspect-ratio: 16 / 9;
+            position: relative;
+        }
+
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video vturb-smartplayer {
+            display: block;
+            width: 100%;
+        }
+
+        .phone-demo {
+            margin-top: 14px;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+            border-radius: 28px;
+            border: 1px solid var(--line);
+            background: #0b1220;
+            padding: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .phone-screen {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .phone-screen img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .phone-caption {
+            text-align: center;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.45;
+        }
+
+        /* =============================================
+           GOOGLE-STYLE REVIEWS — new section
+        ============================================= */
+        .reviews-section {
+            padding: 16px 0;
+        }
+
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, .85);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 14px;
+        }
+
+        .reviews-summary .big-score {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            letter-spacing: -.5px;
+        }
+
+        .reviews-summary .score-stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 2px;
+        }
+
+        .reviews-summary .score-stars span {
+            font-size: 18px;
+            color: #fbbc04;
+        }
+
+        .reviews-summary .score-count {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .reviews-summary .divider-v {
+            width: 1px;
+            height: 40px;
+            background: var(--line);
+        }
+
+        .reviews-summary .score-label {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+            max-width: 180px;
+        }
+
+        /* Scrollable row */
+        .reviews-row {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--line) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .reviews-row::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .reviews-row::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .reviews-row::-webkit-scrollbar-thumb {
+            background: var(--line);
+            border-radius: 3px;
+        }
+
+        /* Individual review card */
+        .review-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 14px;
+            min-width: 268px;
+            max-width: 268px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 1px 4px rgba(15, 23, 42, .07);
+            transition: box-shadow .2s, transform .2s;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 6px 20px rgba(15, 23, 42, .12);
+            transform: translateY(-2px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .review-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .av-blue {
+            background: #1a73e8;
+        }
+
+        .av-red {
+            background: #ea4335;
+        }
+
+        .av-green {
+            background: #34a853;
+        }
+
+        .av-yellow {
+            background: #f9ab00;
+            color: #202124;
+        }
+
+        .av-teal {
+            background: #00897b;
+        }
+
+        .av-purple {
+            background: #7b1fa2;
+        }
+
+        .av-orange {
+            background: #e65100;
+        }
+
+        .av-gray {
+            background: #5f6368;
+        }
+
+        .review-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .review-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .review-role {
+            font-size: 11.5px;
+            color: var(--muted);
+            margin-top: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Google logo inline SVG — reusable via <use> */
+        .g-logo {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+            align-self: flex-start;
+        }
+
+        .review-stars-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .review-stars span {
+            font-size: 13px;
+            color: #fbbc04;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .review-text {
+            font-size: 13px;
+            color: #3c4043;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .review-text.expanded {
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+        }
+
+        .review-more {
+            font-size: 12.5px;
+            color: #1a73e8;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+            font-weight: 600;
+            text-align: left;
+            margin-top: -4px;
+        }
+
+        .review-more:hover {
+            text-decoration: underline;
+        }
+
+        .review-helpful {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: auto;
+            padding-top: 8px;
+            border-top: 1px solid var(--line);
+        }
+
+        .helpful-label {
+            font-size: 11.5px;
+            color: var(--muted);
+            margin-right: 2px;
+        }
+
+        .helpful-btn {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text);
+            font-family: inherit;
+            transition: background .15s;
+        }
+
+        .helpful-btn:hover {
+            background: var(--card);
+        }
+
+        .helpful-btn svg {
+            width: 13px;
+            height: 13px;
+            fill: var(--muted);
+        }
+
+        @media (min-width: 860px) {
+            .wrap {
+                padding: 24px
+            }
+
+            .hero .grid {
+                grid-template-columns: 1.15fr .85fr;
+                align-items: start;
+            }
+
+            .btn {
+                width: auto
+            }
+
+            .hero-cta {
+                display: flex;
+                gap: 12px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .kpis {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .sticky-cta .inner a.secondary {
+                max-width: 180px
+            }
+
+            .sticky-cta .pricechip {
+                display: flex;
+                flex-direction: column;
+                line-height: 1.05;
+                padding: 10px 12px;
+                border-radius: 14px;
+                border: 1px solid rgba(11, 42, 91, .12);
+                background: #fff;
+                min-width: 150px;
+            }
+
+            .sticky-cta .pricechip b {
+                font-size: 16px;
+                letter-spacing: -.2px
+            }
+
+            .sticky-cta .pricechip small {
+                font-size: 12px;
+                color: var(--muted)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="row wrap" style="padding:0">
+            <div class="row" style="width:100%">
+                <div class="brand">
+                    <div class="mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4.5 7.2c2.7-1.5 5.4-1.5 8.1 0v10.2c-2.7-1.5-5.4-1.5-8.1 0V7.2Z"
+                                stroke="rgba(255,255,255,.95)" stroke-width="1.6" />
+                            <path d="M19.5 7.2c-2.7-1.5-5.4-1.5-8.1 0v10.2c2.7-1.5 5.4-1.5 8.1 0V7.2Z"
+                                stroke="rgba(255,255,255,.95)" stroke-width="1.6" />
+                            <path d="M12 3.8v2.2" stroke="rgba(202,161,74,.95)" stroke-width="1.6"
+                                stroke-linecap="round" />
+                            <path d="M9.7 4.6 8.6 6.3" stroke="rgba(202,161,74,.95)" stroke-width="1.6"
+                                stroke-linecap="round" />
+                            <path d="M14.3 4.6 15.4 6.3" stroke="rgba(202,161,74,.95)" stroke-width="1.6"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="name"><b>Pastor Rhema</b><small>AI pastoral assistant • Lifetime access</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero wrap">
+        <div class="grid">
+            <div class="card soft">
+                <span class="badge">📖 Biblical clarity • 🧠 Structure • ⏱️ Less time, more depth</span>
+                <h1>Prepare sermons and study the Bible with clarity, depth, and structure — in minutes.</h1>
+                <p class="lead"><b>Pastor Rhema</b> is an AI pastoral assistant that creates complete sermons and helps
+                    you study difficult passages with context, biblical connections, and practical application — without
+                    starting from zero.</p>
+                <p class="note">✅ Works on mobile • ✅ No monthly fees • ✅ Instant access after purchase</p>
+                <div class="offer-banner" aria-label="Early-year offer">
+                    <div><b>Early-year offer (limited)</b>
+                        <div class="mini" style="margin-top:2px">One-time payment. Lifetime access. No renewals.</div>
+                    </div>
+                    <div class="prices">
+                        <div class="was">Was US$ 87</div>
+                        <div class="now">Today US$ 39</div>
+                        <div class="sub">one-time payment</div>
+                    </div>
+                </div>
+                <div class="hero-cta" style="margin-top:12px">
+                    <a class="btn buy" href="#oferta">Get lifetime access — US$ 39</a>
+                    <a class="btn secondary" href="#vsl">Watch the short video</a>
+                </div>
+                <div class="card soft" id="vsl" style="margin-top:14px">
+                    <h2 style="margin:0 0 10px; font-size:18px;">I have a warning for you</h2>
+                    <div class="video" style="aspect-ratio:auto;">
+                        <vturb-smartplayer id="vid-6a5fa762a6f1fecd77d6377a"
+                            style="display:block;margin:0 auto;width:100%;">
+                            <div class="vturb-player-placeholder"
+                                style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:black;">
+                            </div>
+                        </vturb-smartplayer>
+                        <script>
+                            var pastorRhemaPlayer = document.createElement("script");
+                            pastorRhemaPlayer.src = "https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/players/6a5fa762a6f1fecd77d6377a/v4/player.js";
+                            pastorRhemaPlayer.async = true;
+                            document.head.appendChild(pastorRhemaPlayer);
+                        </script>
+                    </div>
+                    <p class="mini" style="margin-top:10px">Thousands of pastors and church leaders are already using
+                        Pastor Rhema with satisfaction.</p>
+                </div>
+            </div>
+            <div class="card soft phone-demo" id="phone-demo">
+                <h2 style="margin:0 0 10px; font-size:18px;">See it on your phone</h2>
+                <div class="phone-frame" aria-label="Phone preview">
+                    <div class="phone-screen">
+                        <picture>
+                            <source type="image/avif" srcset="/vsl/images/tl1.avif" />
+                            <source type="image/webp" srcset="/vsl/images/tl1.webp" />
+                            <img src="/vsl/images/tl1.png" alt="Pastor Rhema on mobile — quick practical example"
+                                width="360" height="640" loading="lazy" decoding="async" fetchpriority="low" />
+                        </picture>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 style="margin:0 0 10px;">What you get in practice</h2>
+                <div class="kpis">
+                    <div class="kpi"><b>Complete sermon</b><small>Title, introduction, outline, applications, and
+                            conclusion.</small></div>
+                    <div class="kpi"><b>Verse-by-verse study</b><small>Historical context, connections, and
+                            clarity.</small></div>
+                    <div class="kpi"><b>More depth</b><small>Original-language insights (Greek/Hebrew/Aramaic) when
+                            needed.</small></div>
+                    <div class="kpi"><b>Ready-to-use ideas</b><small>Series, special services, retreats, and
+                            themes.</small></div>
+                </div>
+                <div class="divider"></div>
+                <div class="quote"><b>You bring the anointing and delivery.</b><br />Pastor Rhema brings structure,
+                    clarity, and depth to your preparation.</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- =============================================
+         GOOGLE-STYLE REVIEWS — inserted here
+    ============================================= -->
+
+    <!-- Hidden SVG defs for Google logo -->
+    <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="g-logo" viewBox="0 0 24 24">
+            <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                fill="#4285F4" />
+            <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34A853" />
+            <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                fill="#FBBC05" />
+            <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#EA4335" />
+        </symbol>
+    </svg>
+
+    <section class="reviews-section wrap" id="reviews" aria-label="Pastor reviews">
+        <!-- Summary bar -->
+        <div class="reviews-summary">
+            <div class="big-score">5.0</div>
+            <div>
+                <div class="score-stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <div class="score-count">8 reviews</div>
+            </div>
+            <div class="divider-v"></div>
+            <div class="score-label">Pastors and church leaders — verified buyers</div>
+        </div>
+
+        <!-- Scrollable cards -->
+        <div class="reviews-row" role="list">
+
+            <!-- 1 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-blue">MR</div>
+                    <div class="review-meta">
+                        <div class="review-name">Marcus Reid</div>
+                        <div class="review-role">Lead Pastor · Atlanta, GA</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">2 weeks ago</span>
+                </div>
+                <p class="review-text" id="rt1">I used to spend all of Monday and Tuesday just outlining a single
+                    sermon. Now I open Pastor Rhema, describe the passage and the audience, and I have a complete
+                    structure with applications in under 20 minutes. That time goes back to my family and my
+                    congregation. Most practical ministry tool I've purchased in 15 years.</p>
+                <button class="review-more" onclick="toggleReview('rt1',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>12</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-red">JT</div>
+                    <div class="review-meta">
+                        <div class="review-name">James Thornton</div>
+                        <div class="review-role">Senior Pastor · Nashville, TN</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">3 weeks ago</span>
+                </div>
+                <p class="review-text" id="rt2">I was skeptical that an AI tool would respect the integrity of
+                    Scripture. Pastor Rhema surprised me — it brings historical context, cross-references, and
+                    original-language notes that actually deepen the text rather than flatten it. My preparation is
+                    richer now than before.</p>
+                <button class="review-more" onclick="toggleReview('rt2',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>9</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-green">DM</div>
+                    <div class="review-meta">
+                        <div class="review-name">Daniel Morales</div>
+                        <div class="review-role">Senior Pastor · Miami, FL</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">1 month ago</span>
+                </div>
+                <p class="review-text" id="rt3">I pastor a bilingual congregation and preach twice every Sunday. Pastor
+                    Rhema helps me prepare two distinct messages — different tone, different application — without
+                    starting from scratch each time. It's like having a study partner available at midnight.</p>
+                <button class="review-more" onclick="toggleReview('rt3',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>7</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-yellow">KW</div>
+                    <div class="review-meta">
+                        <div class="review-name">Kevin Wallace</div>
+                        <div class="review-role">Bivocational Pastor · Columbus, OH</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">1 month ago</span>
+                </div>
+                <p class="review-text" id="rt4">I work full time and lead a church of 80 people. Preparation time is the
+                    thing I never have enough of. Pastor Rhema gave it back to me. I now walk into Sunday feeling ready,
+                    not rushed. For bivocational pastors, this is a game changer.</p>
+                <button class="review-more" onclick="toggleReview('rt4',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>11</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-teal">SB</div>
+                    <div class="review-meta">
+                        <div class="review-name">Samuel Brooks</div>
+                        <div class="review-role">Teaching Pastor · Denver, CO</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">5 weeks ago</span>
+                </div>
+                <p class="review-text" id="rt5">I was preparing a series on Revelation and asked Rhema to walk me
+                    through chapter 12 verse by verse. The historical context it provided was seminary-level — and it
+                    translated everything into practical language my congregation could actually grasp. Remarkable tool.
+                </p>
+                <button class="review-more" onclick="toggleReview('rt5',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>8</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-purple">TF</div>
+                    <div class="review-meta">
+                        <div class="review-name">Timothy Fields</div>
+                        <div class="review-role">Pastor · Charlotte, NC</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">6 weeks ago</span>
+                </div>
+                <p class="review-text" id="rt6">I've tried other AI tools that gave me generic, surface-level outlines.
+                    Pastor Rhema feels different — it understands pastoral language, knows the difference between
+                    expository and topical preaching, and adjusts to the audience I describe. Worth every dollar.</p>
+                <button class="review-more" onclick="toggleReview('rt6',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>6</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-orange">AL</div>
+                    <div class="review-meta">
+                        <div class="review-name">Aaron Lewis</div>
+                        <div class="review-role">Church Planter · Austin, TX</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">2 months ago</span>
+                </div>
+                <p class="review-text" id="rt7">I was planting a church and preaching every week with no team, no
+                    budget, and no one to bounce ideas off. Pastor Rhema became my study partner during that whole
+                    season. It helped me stay faithful to the text and still deliver messages people could apply on
+                    Monday morning.</p>
+                <button class="review-more" onclick="toggleReview('rt7',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>14</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="review-card" role="listitem">
+                <div class="review-header">
+                    <div class="review-avatar av-gray">RH</div>
+                    <div class="review-meta">
+                        <div class="review-name">Robert Hayes</div>
+                        <div class="review-role">Senior Pastor · Phoenix, AZ</div>
+                    </div>
+                    <svg class="g-logo" viewBox="0 0 24 24">
+                        <use href="#g-logo" />
+                    </svg>
+                </div>
+                <div class="review-stars-row">
+                    <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <span class="review-date">2 months ago</span>
+                </div>
+                <p class="review-text" id="rt8">I was nervous about one-time payment tools — worried it would become
+                    outdated. But access is immediate, works great on my phone, and the output quality is consistent
+                    week after week. The 30-prompt bonus alone saved me hours figuring out how to get the most out of it
+                    from day one.</p>
+                <button class="review-more" onclick="toggleReview('rt8',this)">More</button>
+                <div class="review-helpful">
+                    <span class="helpful-label">Helpful?</span>
+                    <button class="helpful-btn" onclick="thumbUp(this)">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+                        </svg>
+                        <span>5</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section class="section wrap" id="para-quem-e">
+        <div class="card soft">
+            <h2>If this is you, this tool was made for you</h2>
+            <p>The week flies by, time disappears, and you still need to deliver a message with biblical faithfulness
+                and clarity. And many times this happens:</p>
+            <ul class="clean">
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>You know the topic…</b><span>but you need structure to organize everything from start to
+                            finish.</span></div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>You understand the text…</b><span>but you need practical application people can live
+                            out.</span></div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>You want to go deeper…</b><span>but you don't know where to start with difficult
+                            passages.</span></div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>You feel the weight…</b><span>of doing everything alone and still needing excellence.</span>
+                    </div>
+                </li>
+            </ul>
+            <p style="margin-top:12px">The truth is simple: <b>you have the calling</b> — but you don't have to carry
+                everything alone.</p>
+        </div>
+    </section>
+
+    <!-- O QUE É -->
+    <section class="section wrap" id="o-que-e">
+        <div class="card">
+            <h2>What Pastor Rhema is</h2>
+            <p>Pastor Rhema is an AI pastoral assistant built for <b>two main purposes</b>:</p>
+            <ul class="clean">
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>1) Preach with more clarity</b><span>with structure, depth, and organization.</span></div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>2) Study the Bible at a higher level</b><span>with context, connections, and practical
+                            application.</span></div>
+                </li>
+            </ul>
+            <p style="margin-top:12px">It doesn't replace the pastor. It strengthens your preparation — and helps you
+                never start from zero again.</p>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section wrap" id="como-funciona">
+        <div class="card soft">
+            <h2>How it works (simple)</h2>
+            <p>You ask. Pastor Rhema delivers clarity, structure, and depth — in seconds.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="top">
+                        <div class="num">1</div><b>Explain verse by verse</b>
+                    </div>
+                    <div class="quote">"Rhema, I'm confused about this passage. Can you explain it verse by verse?"
+                    </div>
+                    <p class="mini">He brings historical context, biblical connections, and practical application.</p>
+                </div>
+                <div class="step">
+                    <div class="top">
+                        <div class="num">2</div><b>Create a complete sermon</b>
+                    </div>
+                    <div class="quote">"Rhema, I want to preach on hope. Create a complete sermon."</div>
+                    <p class="mini">Title, introduction, outline, applications, illustrations, and conclusion.</p>
+                </div>
+                <div class="step">
+                    <div class="top">
+                        <div class="num">3</div><b>Go deeper in the original</b>
+                    </div>
+                    <div class="quote">"Rhema, what's the Greek word here? And in Hebrew? And in Aramaic?"</div>
+                    <p class="mini">When needed, he draws from the original language and turns it into clear
+                        understanding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE VOCÊ RECEBE -->
+    <section class="section wrap" id="o-que-recebe">
+        <div class="card">
+            <h2>What you receive</h2>
+            <ul class="clean">
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>Access to Pastor Rhema</b><span>to prepare sermons and studies with clarity.</span></div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>Simple to use (mobile or desktop)</b><span>no technical hassle.</span></div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>Ready-to-use ideas</b><span>for series, conferences, special services, and retreats.</span>
+                    </div>
+                </li>
+                <li class="li">
+                    <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></div>
+                    <div><b>Depth without losing clarity</b><span>so study becomes a message people can live.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- BONUS -->
+    <section class="section wrap" id="bonus">
+        <div class="card bonus-card">
+            <div class="bonus-tag">🎁 Bonus included</div>
+            <h2 style="margin-top:10px">30 powerful questions to unlock Pastor Rhema</h2>
+            <p style="margin:0 0 10px; color:var(--muted); line-height:1.6">Get a ready-to-use prompt library so you can
+                generate stronger sermons and deeper studies faster — without guessing what to ask.</p>
+            <div class="quote" style="margin-top:10px"><b>Included free with your purchase:</b> a curated set of
+                questions designed to get better outputs from day one.</div>
+            <ul class="bonus-list" aria-label="Bonus details">
+                <li class="bonus-item">
+                    <div class="bonus-icon">✓</div>
+                    <div><b>Copy &amp; paste prompts</b>
+                        <div class="mini">Ask for sermons, outlines, applications, illustrations, and conclusions
+                            instantly.</div>
+                    </div>
+                </li>
+                <li class="bonus-item">
+                    <div class="bonus-icon">✓</div>
+                    <div><b>Series &amp; ministry ideas</b>
+                        <div class="mini">Generate themes for conferences, special services, retreats, and teaching
+                            tracks.</div>
+                    </div>
+                </li>
+                <li class="bonus-item">
+                    <div class="bonus-icon">✓</div>
+                    <div><b>Deeper study prompts</b>
+                        <div class="mini">Verse-by-verse, context, original-language insights, and modern application —
+                            in seconds.</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="section wrap" id="oferta">
+        <div class="card">
+            <h2>Early-year launch price (no monthly fees)</h2>
+            <p>Traditional courses and mentorships can cost hundreds or thousands. Other tools charge monthly
+                subscriptions. Here the offer is simple:</p>
+            <div class="price">
+                <div class="box">
+                    <div class="row">
+                        <div>
+                            <div class="strike">Was US$ 87 • No subscription • No renewals</div>
+                            <div class="amount">Lifetime access</div>
+                            <div class="subamount">One-time payment • Instant access after approval</div>
+                        </div>
+                        <div style="text-align:right">
+                            <div class="amount" style="font-size:34px;">US$ 39</div>
+                            <div class="subamount">one-time payment</div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <a class="btn buy"
+                        href="https://pay.hotmart.com/W103907822M?checkoutMode=10&amp;xcod=970dfaa9-c88a-4a46-ae57-fd2d331afa3d"
+                        id="cta-checkout" rel="noopener"
+                        style="margin-bottom:12px;">Get lifetime access now — US$ 39</a>
+                    <p class="note">🔒 Secure checkout • ✅ 7-day guarantee • No renewals</p>
+                </div>
+                <div class="card soft" style="padding:14px">
+                    <h3 style="margin:0 0 8px; font-size:16px;">Access in 2 minutes</h3>
+                    <ol style="margin:0; padding-left:18px; color:var(--muted); line-height:1.7">
+                        <li>Purchase approved</li>
+                        <li>Log in to the site/app with the same email</li>
+                        <li>Click "Pastor Rhema" and start using it</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section wrap" id="faq">
+        <div class="card soft">
+            <h2>Quick questions</h2>
+            <details>
+                <summary>Does this replace the pastor?</summary>
+                <p class="mini" style="margin:10px 0 0">No. Pastor Rhema is an <b>assistant</b> for preparation — you
+                    remain the voice, sensitivity, and spiritual leadership in delivery.</p>
+            </details>
+            <details>
+                <summary>Do I need to be tech-savvy?</summary>
+                <p class="mini" style="margin:10px 0 0">No. You simply <b>ask questions</b>. In minutes you'll be using
+                    it on mobile or desktop.</p>
+            </details>
+            <details>
+                <summary>Does it work for Sunday service, small groups, youth, women, or new believers?</summary>
+                <p class="mini" style="margin:10px 0 0">Yes. Ask for the style and audience you want (topical,
+                    expository, devotional, etc.).</p>
+            </details>
+            <details>
+                <summary>Can it help with difficult passages?</summary>
+                <p class="mini" style="margin:10px 0 0">Yes. It can explain verse by verse, add historical context and
+                    biblical connections, and turn it into clarity.</p>
+            </details>
+            <details>
+                <summary>Is this a monthly subscription?</summary>
+                <p class="mini" style="margin:10px 0 0">No. This is a <b>one-time payment</b> for <b>lifetime
+                        access</b>. No renewals.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- DECISÃO FINAL -->
+    <section class="section wrap" id="decisao">
+        <div class="card">
+            <h2>Now the decision is in your hands</h2>
+            <p>You can keep fighting the clock, preparing messages from scratch, and carrying everything on your
+                shoulders…<br />or you can have a well-prepared assistant available 24/7 to help you preach and study
+                better.</p>
+            <p class="note">May God bless your ministry and give you direction in every word you deliver. 🙏</p>
+        </div>
+        <div class="footer">
+            <div class="card soft">
+                <div class="divider"></div>
+                <p style="margin:0">© <span id="year"></span> Pastor Rhema. All rights reserved.<br />This site is not
+                    affiliated with any denomination. Responsible, Scripture-faithful use is recommended.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY CTA -->
+    <div class="sticky-cta" role="region" aria-label="Purchase bar">
+        <div class="inner">
+            <div class="notice" aria-label="Coupon applied notice">
+                <span class="chip">✅ COUPON APPLIED</span>
+                <span>Early-year discount unlocked — today <b>US$ 39</b> (was <b>US$ 87</b>).</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        function toggleReview(id, btn) {
+            const el = document.getElementById(id);
+            el.classList.toggle("expanded");
+            btn.textContent = el.classList.contains("expanded") ? "Less" : "More";
+        }
+
+        function thumbUp(btn) {
+            if (btn.dataset.voted) return;
+            btn.dataset.voted = "1";
+            const span = btn.querySelector("span");
+            span.textContent = String(Number.parseInt(span.textContent, 10) + 1);
+            btn.querySelector("svg").style.fill = "#1a73e8";
+            btn.style.color = "#1a73e8";
+        }
+    </script>
+    <!-- TODO: inserir Meta Pixel + Pixel UTMify + UTMify UTMs quando a tarefa ClickUp 86ajmxh1p for concluída. -->
+</body>
+
+</html>
