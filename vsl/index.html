@@ -26,6 +26,20 @@
     <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
 
+    <!-- UTMify — UTM tracking (captures UTMs and forwards them to the checkout link) -->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids async defer></script>
+
+    <!-- UTMify Pixel -->
+    <script>
+        window.pixelId = "6a613fc12fce4818c07a3c84";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+
     <style>
         :root {
             --bg: #ffffff;
@@ -1667,7 +1681,7 @@
                     </div>
                     <div class="divider"></div>
                     <a class="btn buy"
-                        href="https://pay.hotmart.com/W103907822M?checkoutMode=10&amp;xcod=970dfaa9-c88a-4a46-ae57-fd2d331afa3d"
+                        href="https://checkout.vendepay.com/e9b6659a-e920-4a26-8e25-65f3b2432d80"
                         id="cta-checkout" rel="noopener"
                         style="margin-bottom:12px;">Get lifetime access now — US$ 39</a>
                     <p class="note">🔒 Secure checkout • ✅ 7-day guarantee • No renewals</p>
@@ -1762,7 +1776,7 @@
             btn.style.color = "#1a73e8";
         }
     </script>
-    <!-- TODO: inserir Meta Pixel + Pixel UTMify + UTMify UTMs quando a tarefa ClickUp 86ajmxh1p for concluída. -->
+    <!-- Pixel UTMify + UTMify UTMs inseridos (ClickUp 86ajmxh1p). TODO: inserir Meta Pixel (ID + Token) quando disponível. -->
 </body>
 
 </html>
